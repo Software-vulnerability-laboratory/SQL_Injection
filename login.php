@@ -5,6 +5,7 @@ $password="";
 $dbname="user_details"; 
 $input_username=$_GET["username"]; 
 $input_password=$_GET["password"]; 
+$input_hometown=$GET["hometown"]; 
 
 $conn=new mysqli($servername,$username,$password,$dbname); 
 
