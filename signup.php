@@ -25,7 +25,7 @@ else {
 else {
     
     $sql="INSERT INTO user_info (db_username, db_password, email, phoneno,hometown) VALUES ('$input_username','$input_password','$input_email','input_phone_no','$input_hometown')";
-    echo $sql; 
+    //echo $sql; // Uncomment this to see the constructed SQL query. 
 
     if($conn->query($sql))
     {

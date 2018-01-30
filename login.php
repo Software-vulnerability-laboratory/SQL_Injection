@@ -5,7 +5,6 @@ $password="";
 $dbname="user_details"; 
 $input_username=$_GET["username"]; 
 $input_password=$_GET["password"]; 
-$input_hometown=$GET["hometown"]; 
 
 $conn=new mysqli($servername,$username,$password,$dbname); 
 
@@ -23,6 +22,20 @@ else {
     $num_rows = $result->num_rows; 
 	if ($num_rows>0){   
         echo "Login successful !"; 
+
+        while( $row = mysqli_fetch_assoc($result) ){
+            $username=$row['db_username'];
+            $email=$row['email']; 
+            $hometown=$row['hometown']; 
+            $phoneno=$row['phoneno'];
+        }
+
+        $url='view_info.php'; 
+        $url .= '?username='.$username;
+        $url .= '&email='.$email;
+        $url .= '&hometown='.$hometown;
+        $url .= '&phoneno='.$phoneno;
+        header('Location: '.$url);
     }
     else {
     	echo "Login Failed ! Please try again. "; 
